@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\VehicleRequestController;
+use App\Http\Controllers\RentalmarketplaceController;
+
 
 use App\Http\Controllers\PaymentController;
 
@@ -228,3 +230,5 @@ Route::get('/migrate-for-update', function () {
 
      Route::post('/requests', action: [VehicleRequestController::class, 'store'])->name('requests.store');
     Route::get('/getRequestCar', action: [VehicleRequestController::class, 'getRequestCar'])->name('requests.getRequestCar');
+    Route::get('/rentalmarketplace', [RentalmarketplaceController::class, 'index'])->name('rentalmarketplace');
+     
