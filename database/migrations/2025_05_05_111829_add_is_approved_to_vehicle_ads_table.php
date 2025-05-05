@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('paypal_paymentsss', function (Blueprint $table) {
-            $table->id();
-            $table->integer('currency_id');
-
-            $table->timestamps();
+        Schema::table('vehicle_ads', function (Blueprint $table) {
+            $table->boolean('is_approved')->default(false);
         });
+    
     }
 
     /**
@@ -24,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('paypal_paymentsss');
+        Schema::table('vehicle_ads', function (Blueprint $table) {
+            //
+        });
     }
 };

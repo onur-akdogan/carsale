@@ -14,6 +14,15 @@
                 <span class="menu-bar__name">{{ __('translate.Dashboard') }}</span></span></a>
             </li>
 
+            <li class="{{ Route::is('admin.ads.index') ? 'active' : '' }}"><a class="collapsed" href="{{ route('admin.ads.index') }}"><span class="menu-bar__text">
+                <span class="crancy-menu-icon crancy-svg-icon__v1">
+                    <svg class="crancy-svg-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none">
+                        <path d="M14 21V17C14 14.7909 12.2091 13 10 13C7.79086 13 6 14.7909 6 17V21M19 9.15033V16.9668C19 19.1943 17.2091 21 15 21H5C2.79086 21 1 19.1943 1 16.9668V9.15033C1 7.93937 1.53964 6.7925 2.46986 6.02652L7.46986 1.90935C8.9423 0.696886 11.0577 0.696883 12.5301 1.90935L17.5301 6.02652C18.4604 6.7925 19 7.93937 19 9.15033Z" stroke-width="1.5"></path>
+                    </svg>
+                </span>
+                <span class="menu-bar__name">{{ __('Form Başvurusu') }}</span></span></a>
+            </li>
+            
             <li class="{{ Route::is('admin.brand*') || Route::is('admin.feature*') || Route::is('admin.car*') || Route::is('admin.select-car-purpose') || Route::is('admin.featured-car') || Route::is('admin.awaiting-car') || Route::is('admin.review-list') || Route::is('admin.review-detail') ? 'active' : '' }}"><a href="#!" class="collapsed" data-bs-toggle="collapse" data-bs-target="#menu-item__car_list"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

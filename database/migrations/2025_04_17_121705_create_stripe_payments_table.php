@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stripe_payments', function (Blueprint $table) {
+        Schema::create('stripe_paymentsss', function (Blueprint $table) {
             $table->id();
             $table->integer('currency_id')->default(0);
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stripe_payments');
+        Schema::dropIfExists('stripe_paymentsss');
     }
 };

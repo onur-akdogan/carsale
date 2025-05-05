@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\VehicleRequestController;
 use App\Http\Controllers\RentalmarketplaceController;
+use App\Http\Controllers\VehicleAdController;
 
 
 use App\Http\Controllers\PaymentController;
@@ -173,9 +174,12 @@ Route::group(['middleware' => ['XSS', 'DEMO']], function () {
         /* End admin auth route */
 
         Route::group(['middleware' => ['auth:admin']], function () {
-            Route::get('/', [DashboardController::class, 'dashboard']);
+             Route::get('/', [DashboardController::class, 'dashboard']);
             Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-
+            Route::get('/admin/ads', [VehicleAdController::class, 'index'])->name('ads.index');
+            Route::post('/admin/ads/{id}/approve', [VehicleAdController::class, 'approve'])->name('ads.approve');
+            Route::delete('/admin/ads/{id}', [VehicleAdController::class, 'destroy'])->name('ads.delete');
+            
             Route::controller(AdminProfileController::class)->group(function () {
                 Route::get('edit-profile', 'edit_profile')->name('edit-profile');
                 Route::put('profile-update', 'profile_update')->name('profile-update');
@@ -230,5 +234,9 @@ Route::get('/migrate-for-update', function () {
 
      Route::post('/requests', action: [VehicleRequestController::class, 'store'])->name('requests.store');
     Route::get('/getRequestCar', action: [VehicleRequestController::class, 'getRequestCar'])->name('requests.getRequestCar');
+
+    //Bu satırlar blade
     Route::get('/rentalmarketplace', [RentalmarketplaceController::class, 'index'])->name('rentalmarketplace');
-     
+    Route::get('/vehicle-ad', [VehicleAdController::class, 'create'])->name('vehicle-ad.create');
+    Route::post('/vehicle-ad', [VehicleAdController::class, 'store'])->name('vehicle-ad.store');
+    

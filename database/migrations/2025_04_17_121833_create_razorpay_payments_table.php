@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('razorpay_payments', function (Blueprint $table) {
+        Schema::create('razorpay_paymentsss', function (Blueprint $table) {
             $table->id();
             $table->integer('currency_id')->default(0);
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('razorpay_payments');
+        Schema::dropIfExists('razorpay_paymentsss');
     }
 };
